@@ -298,9 +298,9 @@ class Controller extends Plugin\ControllerAdmin
         if (ob_get_length()) {
             ob_clean();
         }
-        
+        print "here?\n";
         $this->tryToRepairPiwik();
-
+        print "here2\n";
         if (empty($lastError)) {
             $lastError = array(
                 'message' => Common::getRequestVar('error_message', null, 'string'),
@@ -308,12 +308,12 @@ class Controller extends Plugin\ControllerAdmin
                 'line'    => Common::getRequestVar('error_line', null, 'integer')
             );
         }
-
+        print "here3\n";
         $outputFormat = Common::getRequestVar('format', 'html', 'string');
         $outputFormat = strtolower($outputFormat);
 
         if (!empty($outputFormat) && 'html' !== $outputFormat) {
-
+            print "here4\n";
             $errorMessage = $lastError['message'];
 
             if (\Piwik_ShouldPrintBackTraceWithMessage()) {
