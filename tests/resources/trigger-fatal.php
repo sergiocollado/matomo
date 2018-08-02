@@ -17,7 +17,8 @@ class MyClass
         try {
             \Piwik\ErrorHandler::pushFatalErrorBreadcrumb(static::class);
 
-            $val = str_repeat("*", 1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 1024);
+            $val = str_repeat("*", PHP_INT_MAX);
+            print "here?".strlen($val)."\n";@ob_flush();
         } finally {
             \Piwik\ErrorHandler::popFatalErrorBreadcrumb();
         }
