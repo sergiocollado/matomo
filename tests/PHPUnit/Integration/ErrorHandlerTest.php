@@ -11,8 +11,9 @@ namespace Piwik\Tests\Integration;
 
 use Piwik\Http;
 use Piwik\Tests\Framework\Fixture;
+use Piwik\Tests\Framework\TestCase\IntegrationTestCase;
 
-class ErrorHandlerTest extends \PHPUnit_Framework_TestCase
+class ErrorHandlerTest extends IntegrationTestCase
 {
     public function test_fatalErrorStackTracesReturned()
     {
