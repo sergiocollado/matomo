@@ -86,6 +86,8 @@ before_script:
   # disable opcache to avoid random failures on travis
   - echo "opcache.enable=0" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
+  - cat ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
   # make tmpfs and run MySQL on it for reasonnable performance
   - ./tests/travis/setup_mysql_tmpfs.sh
 
