@@ -4,7 +4,7 @@ define('PIWIK_PRINT_ERROR_BACKTRACE', true);
 define('PIWIK_ENABLE_DISPATCH', false);
 
 require_once __DIR__ . '/../../index.php';
-print "here?\n";@ob_flush();
+
 $environment = new \Piwik\Application\Environment(null);
 $environment->init();
 

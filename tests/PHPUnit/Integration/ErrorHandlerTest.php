@@ -17,7 +17,6 @@ class ErrorHandlerTest extends \PHPUnit_Framework_TestCase
     public function test_fatalErrorStackTracesReturned()
     {
         $url = Fixture::getRootUrl() . '/tests/resources/trigger-fatal.php?format=json';
-        print "URL: $url\n";
         $response = Http::sendHttpRequest($url, 2);
 print "RESPONSE: $response\n";
         $response = json_decode($response, $isAssoc = true);
