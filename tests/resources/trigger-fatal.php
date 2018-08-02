@@ -17,8 +17,7 @@ class MyClass
         try {
             \Piwik\ErrorHandler::pushFatalErrorBreadcrumb(static::class);
 
-            $val = str_repeat(" ", 1024 * 1024 * 1024 * 1024 * 1024);
-            print "here?\n";@ob_flush();
+            $val = str_repeat("*", 1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 1024);
         } finally {
             \Piwik\ErrorHandler::popFatalErrorBreadcrumb();
         }
