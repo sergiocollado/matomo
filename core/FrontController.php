@@ -92,7 +92,7 @@ class FrontController extends Singleton
             $message = $controller->dispatch('CorePluginsAdmin', 'safemode', array($lastError));
         } catch(Exception $e) {
             // may fail in safe mode (eg. global.ini.php not found)
-            $message = sprintf("Matomo encountered an error: %s (which lead to: %s)", $lastError['message'], $e->getMessage());
+            $message = sprintf("Matomo encountered an error: %s (which lead to: %s)", $lastError['message'], $e->getMessage() . "\n" . $e->getTraceAsString());
         }
 
         return $message;
@@ -229,14 +229,9 @@ class FrontController extends Singleton
     public static function triggerSafeModeWhenError()
     {
         $lastError = error_get_last();
-        print_r($lastError);@ob_flush();
         if (!empty($lastError) && $lastError['type'] == E_ERROR) {
-            try {
-                print "0\n";@ob_flush();
-                $message = self::generateSafeModeOutputFromError($lastError);
-            } catch (\Exception $ex) {
-                print $ex->getMessage() . "\n" . $ex->getTraceAsString() . "\n";@ob_flush();
-            }
+            print_r(Config::getInstance()->database);@ob_flush();
+            $message = self::generateSafeModeOutputFromError($lastError);
             echo $message;
         }
     }
