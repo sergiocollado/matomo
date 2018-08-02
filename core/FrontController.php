@@ -228,7 +228,9 @@ class FrontController extends Singleton
 
     public static function triggerSafeModeWhenError()
     {
+        print "here?\n";@ob_flush();
         $lastError = error_get_last();
+        print_r($lastError);@ob_flush();
         if (!empty($lastError) && $lastError['type'] == E_ERROR) {
             $message = self::generateSafeModeOutputFromError($lastError);
             echo $message;
