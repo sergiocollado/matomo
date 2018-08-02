@@ -21,7 +21,7 @@ class ErrorHandlerTest extends \PHPUnit_Framework_TestCase
 
         $response = json_decode($response, $isAssoc = true);
         $response['message'] = $this->cleanMessage($response['message']);
-
+print_r($response);
         $this->assertEquals('error', $response['result']);
 
         $expectedFormat = <<<FORMAT
