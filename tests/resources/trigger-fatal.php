@@ -19,7 +19,7 @@ class MyClass
 
             $val = "";
             while (true) {
-                $val .= "*";
+                $val .= str_repeat("*", 1024 * 1024);
             }
             print "here?".strlen($val)."\n";@ob_flush();
         } finally {
