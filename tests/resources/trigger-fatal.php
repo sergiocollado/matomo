@@ -19,7 +19,7 @@ class MyClass
 
             $val = "";
             while (true) {
-                $val .= str_repeat("*", 32 * 1024 * 1024);
+                $val .= str_repeat("*", 1024 * 1024 * 1024);
             }
         } finally {
             \Piwik\ErrorHandler::popFatalErrorBreadcrumb();
