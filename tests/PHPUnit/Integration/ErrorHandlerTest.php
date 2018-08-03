@@ -19,7 +19,7 @@ class ErrorHandlerTest extends IntegrationTestCase
     {
         $url = Fixture::getRootUrl() . '/tests/resources/trigger-fatal.php?format=json';
         $response = Http::sendHttpRequest($url, 2);
-print "RESPONSE: $response\n";
+
         $response = json_decode($response, $isAssoc = true);
         $response['message'] = $this->cleanMessage($response['message']);
 
